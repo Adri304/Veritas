@@ -1,0 +1,288 @@
+/* === ESTILOS GENERALES === */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0f;
+  color: white;
+  transition: background 0.6s;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* === NAVBAR === */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid #00ffc6;
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.logo-text {
+  color: #00ffc6;
+  font-size: 1.3rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #00ffc6;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* === BOTÓN MODO VERITAS === */
+.veritas-btn {
+  margin-left: 15px;
+  background: none;
+  border: 2px solid #00ffc6;
+  color: #00ffc6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.veritas-btn:hover {
+  background: #00ffc6;
+  color: black;
+  box-shadow: 0 0 10px #00ffc6;
+}
+
+/* === HERO SECTION === */
+.hero {
+  background: linear-gradient(135deg, #0a0a0f, #0f3d3e);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #00ffc6;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #00ffc6;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #009f85;
+  color: white;
+}
+
+/* === SECCIONES === */
+.section {
+  padding: 60px 20px;
+}
+
+.section.dark {
+  background: #0f3d3e;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00ffc6;
+}
+
+/* === HISTORIA === */
+#historia p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* === PODERES Y DEBILIDADES === */
+.powers-grid,
+.weakness-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00ffc6;
+  padding: 20px;
+  border-radius: 10px;
+  width: 280px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ffc6;
+}
+
+/* === TEORÍAS Y ESTRATEGIA === */
+.grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* === FOOTER === */
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid #00ffc6;
+}
+
+/* === MODO VERITAS === */
+.oculto {
+  display: none;
+  color: #00ffc6;
+  font-style: italic;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+body.modo-veritas {
+  background: radial-gradient(circle at center, #0f3d3e, #000);
+}
+
+body.modo-veritas .oculto {
+  display: inline;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: black;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #00ffc6;
+    padding: 10px 0;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .powers-grid, .weakness-grid, .grid-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* === EFECTO DE RESPLANDOR SUAVE (MODO VERITAS) === */
+body.modo-veritas::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,198,0.1) 10%, transparent 60%);
+  animation: resplandor 8s infinite linear;
+  pointer-events: none;
+  transform: translate(-25%, -25%);
+  z-index: 0;
+}
+
+@keyframes resplandor {
+  0% { transform: translate(-25%, -25%) rotate(0deg); }
+  100% { transform: translate(-25%, -25%) rotate(360deg); }
+}
+
+/* === BOTÓN VOLVER ARRIBA === */
+#btnArriba {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #00ffc6;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 0 10px #00ffc6;
+  transition: 0.3s;
+  display: none;
+  z-index: 999;
+}
+
+#btnArriba:hover {
+  background-color: #009f85;
+  color: white;
+  transform: translateY(-5px);
+}
